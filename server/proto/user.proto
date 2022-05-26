@@ -1,0 +1,36 @@
+syntax = "proto3";
+package service;
+option go_package = "github.com/turnixxd/react-redux;go_service_gen";
+
+message CreateUser{
+  int32 id = 1;
+  string username = 2;
+  string password = 3;
+  string role = 4;
+}
+
+message GetUser{
+  int32 id = 1;
+  string username = 2;
+  string password = 3;
+  string role = 4;
+}
+
+message DeleteUser{
+  int32 id = 1;
+  string username = 2;
+  string password = 3;
+  string role = 4;
+}
+
+message ServerResponse{
+  bool state = 1;
+  int32 id = 2;
+  string error = 3;
+}
+
+service BasicService{
+  rpc Set(CreateUser) returns (ServerResponse);
+  rpc Get(GetUser) returns (ServerResponse);
+  rpc Delete(DeleteUser) returns (ServerResponse);
+}
